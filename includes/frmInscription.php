@@ -1,4 +1,8 @@
 <form action="index.php?page=inscription" method="post">
+<div>
+        <label for="pseudo">pseudo :</label>
+        <input type="text" id="pseudo" name="pseudo" value="<?=$pseudo?>" />
+    </div>
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" value="<?=$nom?>" />
