@@ -3,9 +3,9 @@
 
 $requeteCategoriesNiveau1 = "
     SELECT *
-    FROM categories
-    WHERE  categories=0
-    ORDER BY libelle
+    FROM articles
+    WHERE  id_articles
+    ORDER BY created_at
 ";
 
 $connexionCategories = new Sql();
@@ -16,8 +16,8 @@ $menuCategories = "<ul>";
 
 for ($i = 0; $i < count($resultatCaterogies); $i++) {
     $menuCategories .= "<li>";
-    $menuCategories .= "<a href=\"index.php?page=articles&amp;id_categorie=" . $resultatCaterogies[$i]['id_categorie'] . "\">";
-    $menuCategories .= $resultatCaterogies[$i]['libelle'];
+    $menuCategories .= "<a href=\"index.php?page=articles&amp;id_articles=" . $resultatCaterogies[$i]['id_articles'] . "\">";
+    $menuCategories .= $resultatCaterogies[$i]['auteur'] . ['description'];
     $menuCategories .= "</a>";
     $menuCategories .= "</li>";
 }
@@ -27,13 +27,13 @@ $menuCategories .= "</ul>";
 echo $menuCategories;
 
 
-if (isset($_GET['id_categorie'])) {
-    $id_categorie = $_GET['id_categorie'];
+if (isset($_GET['id_articles'])) {
+    $id_articles = $_GET['id_articles'];
 
     $requeteArticlesParCategorie = "SELECT *
     FROM articles
-    WHERE id_categorie= $id_categorie
-    ORDER BY designation";
+    WHERE id_article= $id_articles
+    ORDER BY created_at";
 
 
     $connexionArticles = new Sql();
@@ -43,7 +43,7 @@ if (isset($_GET['id_categorie'])) {
     $articles = "<ul>";
     for ($i = 0; $i < count($resultatArticles); $i++) {
         $articles .= "<li>";
-        $articles .= $resultatArticles[$i]['designation'];
+        $articles .= $resultatArticles[$i]['description'];
         $articles .= "</li>";
     }
 

@@ -22,13 +22,13 @@ $articles = getAllArticles(3, 'ASC');?>
         <p><strong>Date modifier : </strong><?php echo date('d/m/Y à H:i:s', strtotime($article['edit_at'])); ?></p>
 
 
-        <a href="editPost.php?id=<?php echo $article['id_articles']; ?>">Modifier</a>
+        <a href="index.php?page=editPost?id_articles=<?php echo $article['id_articles']; ?>">Modifier</a>
 
-        <a href="deletePost.php?id=<?php echo $article['id_articles']; ?>">Delete</a>Supprimer</a>
+        <a href="index.php?page=deletePost?id_articles=<?php echo $article['id_articles']; ?>">Delete</a>
 
 
         <?php if ($article['status'] == 'publish') { ?>
-        <a href="depublierPost.php?id=<?php echo $article['id_articles']; ?>">Dépublier</a><?php } ?>
+        <a href="depublierPost.php?id_articles=<?php echo $article['id_articles']; ?>">Dépublier</a><?php } ?>
 
         <?php if ($article['status'] !== 'publish') { ?>
         <a href="publishedPost.php?id=<?php echo $article['id_articles']; ?>">Publier</a><?php } ?>

@@ -1,11 +1,11 @@
 <?php
 
 
-function getArticles($id) {
+function getArticles($id_articles) {
     global $pdo;
     $sql = "SELECT * FROM articles WHERE id_articles = :id_articles";
     $query = $pdo=pdo()->prepare($sql);
-    $query->bindValue(':id_articles',$id, PDO::PARAM_INT);
+    $query->bindValue(':id_articles',$id_articles, PDO::PARAM_INT);
     $query->execute();
     return $query->fetch();
 }
