@@ -1,7 +1,6 @@
 <h1>Articles 2</h1>
 <?php
 
-require('./functions/pdo.php');
 $articles = getAllArticles(3, 'ASC');?>
 
 <h1>Liste Articles</h1>
