@@ -4,7 +4,7 @@
 $requeteCategoriesNiveau1 = "
     SELECT *
     FROM categories
-    WHERE  categories_id_categorie=0
+    WHERE  categories=0
     ORDER BY libelle
 ";
 

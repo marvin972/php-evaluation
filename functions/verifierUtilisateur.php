@@ -1,8 +1,8 @@
 <?php
 
-function verifierUtilisateur($email, $pseudo) {
+function verifierUtilisateur($email) {
     if ($pdo = pdo()) {
-        $sql = "SELECT COUNT(*) FROM utilisateurs WHERE email='$email', pseudo='$pseudo'";
+        $sql = "SELECT COUNT(*) FROM utilisateurs WHERE email='$email'";
         $reponse = $pdo->query($sql);
         $nbreLigne = $reponse->fetchColumn();
         if ($nbreLigne > 0) {
