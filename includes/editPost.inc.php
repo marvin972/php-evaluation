@@ -31,7 +31,7 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':titre',$titre,PDO::PARAM_STR);
         $query->bindValue(':auteur',$auteur,PDO::PARAM_STR);
         $query->bindValue(':description',$description,PDO::PARAM_STR);
-        $query->bindValue(':status',$statu,PDO::PARAM_STR);
+        $query->bindValue(':status',$status,PDO::PARAM_STR);
         $query->bindValue(':id_articles',$id_articles,PDO::PARAM_INT);
         $query->execute();
         // header('Location: listingPost.php');
@@ -63,7 +63,7 @@ if(!empty($_POST['submitted'])) {
     <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
 
     <?php
-        $statu = array(
+        $status = array(
             'draft' => 'brouillon',
             'publish' => 'Publié'
         );

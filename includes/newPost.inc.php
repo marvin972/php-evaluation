@@ -1,6 +1,8 @@
 <?php
-
-$success = false;
+if (verifierAdmin()) {
+if (verifierModerateur()) {
+    if (verifierInscrit()) {
+    $success = false;
 $errors = array();
 if(!empty($_POST['submitted'])) {
     // Faille XSS
@@ -28,6 +30,10 @@ if(!empty($_POST['submitted'])) {
        $success = true;
     }
 }
+}
+}
+}
+
 
 ?>
 <h1>Ajouter un article</h1>

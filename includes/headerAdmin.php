@@ -19,7 +19,7 @@
                 <li><a href="index.php?page=accueil">Accueil</a></li>
                 <li><a href="index.php?page=categoriesAdmin">Categories</a></li>
                 <li><a href="index.php?page=articlesAdmin">Articles</a></li>
-                <li><a href="index.php?page=commandesAdmin">Commandes</a></li>
+                <li><a href="index.php?page=newPost">Ajouter Articles</a></li>
                 <li><a href="index.php?page=clientsAdmin">Clients</a></li>
                 <li><a href="index.php?page=logout">Logout</a></li>
             </ul>

@@ -10,7 +10,7 @@ spl_autoload_register(function ($className){
     
 
 
-$_SESSION['message'] = "Il fait chaud";
+// $_SESSION['message'] = "Il fait chaud";
 
 
 require_once './functions/autoLoad.php';

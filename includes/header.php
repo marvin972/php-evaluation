@@ -19,7 +19,11 @@
                 <li><a href="index.php?page=accueil">Accueil</a></li>
                 <li><a href="index.php?page=articles">Articles</a></li>
                 <li><a href="index.php?page=inscription">Inscription</a></li>
-                <li><a href="index.php?page=newPost">NewPost</a></li>
+                <?php
+                if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+                    echo '<li><a href="index.php?page=newPost">Ajouter Articles</a></li>';
+                } ?>
+                <!-- <li><a href="index.php?page=newPost">NewPost</a></li> -->
                 <li><a href="index.php?page=article">Liste article</a></li>
                 <?php
                 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {

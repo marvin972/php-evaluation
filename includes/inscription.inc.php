@@ -1,8 +1,7 @@
 <h1>Inscription</h1>
-<?php
+<?php 
 
 if (isset($_POST['frmInscription'])) {
-    $pseudo = isset($_POST['pseudo']) ? htmlentities(trim($_POST['pseudo'])) : "";
     $nom = isset($_POST['nom']) ? htmlentities(trim($_POST['nom'])) : "";
     $prenom = isset($_POST['prenom']) ? htmlentities(trim($_POST['prenom'])) : "";
     $email = isset($_POST['email']) ? htmlentities(trim($_POST['email'])) : "";
@@ -12,8 +11,6 @@ if (isset($_POST['frmInscription'])) {
 
 
     $erreurs = array();
-    if (mb_strlen($pseudo) === 0)
-        array_push($erreurs, "Veuillez saisir votre pseudo");
 
     if (mb_strlen($nom) === 0)
         array_push($erreurs, "Veuillez saisir votre nom");
@@ -49,16 +46,13 @@ if (isset($_POST['frmInscription'])) {
 
         echo $messageErreurs;
 
-        require_once './includes/frmInscription.php';
+        require_once './includes/inscription.inc.php';
     } else {
-        // Vérification de l'inscription préalable ou non de l'utilisateur
-        if (verifierUtilisateur($email, $pseudo)) {
-            // La fonction verifierUtilisateur() renvoie vrai (il y a déjà une ligne avec cette adresse), pas de traitement
+        if (verifierUtilisateur($email)) {
             echo "Vous êtes déjà inscrit";
         } else {
-            // La fonction verifierUtilisateur() renvoie faux, donc on procède à l'inscription
-            if (inscrireUtilisateur($nom, $prenom, $email, $mdp1, $pseudo))
-                $message = "Utilisateur inscrit";
+            if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
+                $message = "Vous avez été inscrit avec succés !";
             else
                 $message = "Erreur";
 
@@ -66,6 +60,8 @@ if (isset($_POST['frmInscription'])) {
         }
     }
 } else {
-    $pseudo = $nom = $prenom = $email = $cgu = "";
-    require_once 'frmInscription.php';
+    $nom = $prenom = $email = $cgu = "";
+    require_once './includes/frmInscription.php';
 }
+
+?>

@@ -15,3 +15,4 @@ if(!empty($_GET['id_articles']) && is_numeric($_GET['id_articles'])) {
     }
 }
 
+ ?>
